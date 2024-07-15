@@ -1,0 +1,131 @@
+/* Base */
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Lato", sans-serif;
+}
+
+/* Font */
+
+/* ----- */
+
+.wrapper {
+    width: 100%;
+}
+
+/* Main Section */
+
+.main {
+    background-image: url(../img/Слой\ 9\ 1.png);
+    background-size: cover;
+}
+
+
+.header {
+    height: 15vh;
+    background-color: #10101DE5;
+    display: flex;
+    align-items: center;
+    position: sticky;
+}
+.header-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.nav {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+}
+
+/* При клике линк меняет цвет */
+.active-nav-link {
+    color: #43ABF0 !important;
+}
+/* --- */
+
+/* Небольшая анимация при наведении */
+.nav-link:hover {
+    transform: translateY(1px);
+    transition: 0.3s;
+    color: #43ABF0;
+}
+
+/* Гамбургер меню */
+.hamburger-menu {
+    display: none; 
+    flex-direction: column;
+    justify-content: space-around;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    z-index: 10;
+    background: none;
+    border: none;
+}
+
+.hamburger-menu span {
+    display: block;
+    width: 2rem;
+    height: 0.25rem;
+    background-color: white;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: row;
+        align-items: center;
+        width: 80%;
+    }
+
+    .nav {
+        width: 100%;
+        flex-direction: row;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #10101DE5;
+        border-top: solid 0.5px white;
+        height: 5vh;
+        align-items: center;
+        clip-path: circle(75%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease-in-out;
+        justify-content: center;
+        gap: 10%;
+    }
+
+    .nav.open {
+        opacity: 1;
+        visibility: visible;
+        clip-path: circle(100%);
+    }
+
+    .hamburger-menu {
+        display: flex;
+    }
+}
+
+@media (max-width: 1000px) {
+    .header-container {
+        width: 80%;
+    }
+}
