@@ -77,10 +77,13 @@ body, html {
     transition: all 0.3s ease-in-out;
 }
 
+/* ------------------------------------------------- content block */
+
 .content-block {
     width: 70%;
     margin: 5% auto;
     padding: 20px;
+    padding-bottom: 100px;
 }
 
 .content-block > h1 { 
@@ -141,7 +144,7 @@ body, html {
     transition: 0.3s ease-out;
 }
 
-/* Адаптивчики */
+/* ------------------------------------------------------------------ Адаптивчики */
 @media (max-width: 768px) {
     .header__container {
         flex-direction: row;
