@@ -8,21 +8,16 @@ body, html {
     font-family: "Lato", sans-serif;
 }
 
-/* Font */
-
-/* ----- */
-
-.wrapper {
+.page-wrapper {
     width: 100%;
 }
 
-/* Main Section */
-
-.main {
+.page__main {
     background-image: url(../img/Слой\ 9\ 1.png);
+    background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
 }
-
 
 .header {
     height: 15vh;
@@ -30,8 +25,13 @@ body, html {
     display: flex;
     align-items: center;
     position: sticky;
+    width: 100%;
+    z-index: 1;
+    top: 0;
+    transition: transform 0.3s ease-in-out;
 }
-.header-container {
+
+.header__container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -40,33 +40,23 @@ body, html {
     margin: 0 auto;
 }
 
-.nav {
+.navigation {
     width: 50%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.nav-link {
+.navigation__link {
     color: white;
     text-decoration: none;
 }
 
-/* При клике линк меняет цвет */
-.active-nav-link {
+.navigation__link--active {
     color: #43ABF0 !important;
 }
-/* --- */
 
-/* Небольшая анимация при наведении */
-.nav-link:hover {
-    transform: translateY(1px);
-    transition: 0.3s;
-    color: #43ABF0;
-}
-
-/* Гамбургер меню */
-.hamburger-menu {
+.menu-button {
     display: none; 
     flex-direction: column;
     justify-content: space-around;
@@ -78,7 +68,7 @@ body, html {
     border: none;
 }
 
-.hamburger-menu span {
+.menu-button--hamburger span {
     display: block;
     width: 2rem;
     height: 0.25rem;
@@ -87,14 +77,79 @@ body, html {
     transition: all 0.3s ease-in-out;
 }
 
+.content-block {
+    width: 70%;
+    margin: 5% auto;
+    padding: 20px;
+}
+
+.content-block > h1 { 
+    font-size: calc(1.5vw + 1em);
+    text-transform: uppercase;
+}
+
+.content-block > h1 > span {
+    color: #43ABF0;
+}
+
+.content-block > p {
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    margin-top: 5%;
+}
+
+.content-block > p > span {
+    font-weight: 400;
+    margin-top: 2%;
+    margin-left: 1%;
+}
+
+.action-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 2%;
+    width: 100%;
+}
+
+.action-button {
+    display: inline-block; 
+    background-color: #3E9CDC; 
+    color: white; 
+    padding: 10px 20px; 
+    border: none;
+    text-align: center; 
+    text-decoration: none; 
+    font-size: 15px;
+    transition: background-color 0.3s ease, transform 0.3s;
+    margin-top: 5%;
+    width: 15%;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: lighter;
+}
+
+#more {
+    background-color: white;
+    color: black;
+    border: 0.5px solid #6F6D7B;
+}
+
+.action-button--primary:hover,
+.action-button--secondary:hover {
+    transform: translateY(-3px);
+    transition: 0.3s ease-out;
+}
+
+/* Адаптивчики */
 @media (max-width: 768px) {
-    .header-container {
+    .header__container {
         flex-direction: row;
         align-items: center;
         width: 80%;
     }
 
-    .nav {
+    .navigation {
         width: 100%;
         flex-direction: row;
         position: absolute;
@@ -113,19 +168,58 @@ body, html {
         gap: 10%;
     }
 
-    .nav.open {
+    .navigation--open {
         opacity: 1;
         visibility: visible;
         clip-path: circle(100%);
     }
 
-    .hamburger-menu {
+    .menu-button--hamburger {
         display: flex;
+    }
+
+    .action-button {
+        width: 30%;
+        font-size: small;
     }
 }
 
 @media (max-width: 1000px) {
-    .header-container {
+    .header__container, .content-block {
         width: 80%;
+    }
+}
+
+@media (max-width: 420px) {
+    .header__container, .content-block {
+        width: 90%;
+    }
+
+    .logo__image {
+        width: 70%;
+    }
+
+    .navigation__link {
+        font-size: small;
+    }
+
+    .header {
+        height: 10vh; 
+    }
+
+    .content-block > h1 {
+        font-size: large;
+        text-align: center;
+    }
+
+    .content-block > p {
+        font-size: small;
+        text-align: center;
+    }
+
+    .action-button {
+        margin: auto;
+        width: 30%;
+        font-size: small;
     }
 }

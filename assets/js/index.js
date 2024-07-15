@@ -1,37 +1,34 @@
-// Смен цвета при клике на ссылку
-
+// Смена цвета при клике на ссылку
 document.addEventListener("DOMContentLoaded", function() {
-    const navLinks = document.querySelectorAll('.nav-link');
+    const navigationLinks = document.querySelectorAll('.navigation__link');
 
-    navLinks.forEach(link => {
+    navigationLinks.forEach(link => {
         link.addEventListener('click', function() {
-
-            navLinks.forEach(link => link.classList.remove('active-nav-link'));
-
-            this.classList.add('active-nav-link');
+            navigationLinks.forEach(link => link.classList.remove('navigation__link--active'));
+            this.classList.add('navigation__link--active');
         });
-    });
-document.addEventListener('click', function(event) {
-    const navElement = document.querySelector('.nav');
-    if (!navElement.contains(event.target)) {       
-        navLinks.forEach(link => link.classList.remove('active-nav-link'));
-    }
-}, true);
-});
-
-// --------- Hamburger
-
-document.addEventListener("DOMContentLoaded", function() {
-    const hamburgerMenu = document.querySelector('.hamburger-menu');
-    const nav = document.querySelector('.nav');
-
-    hamburgerMenu.addEventListener('click', function() {
-        nav.classList.toggle('open');
     });
 
     document.addEventListener('click', function(event) {
-        if (!nav.contains(event.target)) {
-            nav.classList.remove('open');
+        const navigationElement = document.querySelector('.navigation');
+        if (!navigationElement.contains(event.target)) {       
+            navigationLinks.forEach(link => link.classList.remove('navigation__link--active'));
+        }
+    }, true);
+});
+
+// --------- Гамбургер
+document.addEventListener("DOMContentLoaded", function() {
+    const hamburgerMenu = document.querySelector('.menu-button--hamburger');
+    const navigation = document.querySelector('.navigation');
+
+    hamburgerMenu.addEventListener('click', function() {
+        navigation.classList.toggle('navigation--open');
+    });
+
+    document.addEventListener('click', function(event) {
+        if (!navigation.contains(event.target)) {
+            navigation.classList.remove('navigation--open');
         }
     }, true);
 });

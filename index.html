@@ -1,40 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./assets/css/main.css">
 </head>
+
 <body>
-    <div class="wrapper">
-        <section class="main">
+    <div class="page-wrapper">
+        <section class="page__main">
             <header class="header">
-                <div class="header-container">
-                    <div class="logo">
-                        <img src="./assets/img/LoremIpsum.Net.png" alt="" class="logo-img">
+                <div class="header__container">
+                    <div class="header__logo">
+                        <img src="./assets/img/LoremIpsum.Net.png" alt="" class="logo__image">
                     </div>
-                
+
                     <!-- Гамбургер меню -->
-                    <button class="hamburger-menu" aria-label="Открыть меню">
+                    <button class="menu-button menu-button--hamburger" aria-label="Открыть меню">
                         <span></span>
                         <span></span>
                         <span></span>
                     </button>
-                
-                    <div class="nav">
-                        <a href="#" class="nav-link">Бизнес</a>
-                        <a href="#" class="nav-link">О нас</a>
-                        <a href="#" class="nav-link">Цены</a>
-                        <a href="#" class="nav-link">Оформить заказ</a>
-                    </div>
+
+                    <nav class="navigation">
+                        <a href="#" class="navigation__link">Бизнес</a>
+                        <a href="#" class="navigation__link">О нас</a>
+                        <a href="#" class="navigation__link">Цены</a>
+                        <a href="#" class="navigation__link">Оформить заказ</a>
+                    </nav>
                 </div>
             </header>
 
-            
+            <div class="content-block">
+                <h1>
+                    <span>Lorem ipsum</span> dolor sit <br> amet
+                    consectetur <span>adipiscing</span>
+                </h1>
+                <p>
+                    At vero eos et accusamus et iusto odio dignissimos ducimus!
+                    <span> - Totam rem aperiam eaque ipsa</span>
+                    <span> - Sit voluptatem accusantium doloremque laudantium</span>
+                    <span> - Sed ut perspiciatis, unde omnis iste natus error</span>
+                </p>
+                <div class="action-buttons">
+                    <a href="#" class="action-button action-button--primary">Заказать</a>
+                    <a href="#" class="action-button action-button--secondary" id="more">Подробнее</a>
+                </div>
+            </div>
         </section>
     </div>
 
     <script src="assets/js/index.js"></script>
 </body>
+
 </html>
