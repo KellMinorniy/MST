@@ -84,6 +84,7 @@ body, html {
     margin: 5% auto;
     padding: 20px;
     padding-bottom: 100px;
+    margin-bottom: 0;
 }
 
 .content-block > h1 { 
@@ -224,5 +225,138 @@ body, html {
         margin: auto;
         width: 30%;
         font-size: small;
+    }
+}
+
+/* ------------------------------------------------------------------- Orders */
+
+.page__orders {
+    background-image: url(../img/Слой\ 1\ 1.png);
+    background-size: cover;
+    background-color: #272733;
+    margin-top: 0;
+    width: 100%;
+    padding-top: 5%;
+    margin-bottom: 0;
+}
+
+.page__orders > h1 {
+    text-align: center;
+    text-transform: uppercase;
+    color: white;
+}
+
+.page__orders > h1 > span {
+    color: #3E9CDC;
+}
+
+.page__orders > p {
+    color: #BBBBBB;
+    margin-top: 2%;
+    text-align: center;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    margin: 5% auto;
+    gap: 1.5%;
+}
+
+.row__circle {
+    background-color: #3E9CDC;
+    border-radius: 50%;
+    border: solid #286690 5px;
+    padding: 13px;
+    text-align: center;
+    margin: auto;
+    transition: background-color 1s ease-in-out;
+}
+
+@media (max-width: 768px) {
+    .animate-circle,
+    .animate-img {
+        animation-play-state: paused;
+    }
+
+    .row {
+        flex-direction: column;
+        align-items: center; 
+    }
+
+    .row__circle {
+        flex-basis: auto; 
+        margin: 20px 0; 
+    }
+
+    .page__orders > p {
+        margin-top: 4%;
+    }
+
+    .row {
+        gap: 4px;
+    }
+}
+
+@media (max-width: 480px) {
+    .page__orders > h1 {
+        font-size: 1.5em; 
+    }
+
+    .page__orders > p {
+        font-size: 0.9em; 
+    }
+
+    .row__circle  {
+        padding: 5px;
+    }
+
+    .row {
+        gap: 5px;
+    }
+}
+
+@media(max-width: 1200px) {
+    .row {
+        width: 80%;
+        margin: 5% auto;
+    }
+
+    .row__circle {
+        padding: 5px;
+        margin: auto;
+    }
+
+    .row__circle > img {
+        width: 80%;
+    }
+}
+
+.animate-circle {
+    animation: floatUp 1s forwards;
+}
+
+
+.animate-img {
+    animation: floatUpImg 1s forwards;
+}
+
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes floatUpImg {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-20px);
     }
 }

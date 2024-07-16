@@ -32,3 +32,43 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }, true);
 });
+
+
+// circle анимация
+
+document.addEventListener('scroll', function() {
+    const circles = document.querySelectorAll('.row__circle');
+    const ellipses = document.querySelectorAll('img[src="assets/img/Ellipse 6.svg"]');
+    const windowHeight = window.innerHeight;
+
+    const checkPosition = () => {
+        circles.forEach((circle, index) => {
+            const rect = circle.getBoundingClientRect();
+            if (rect.top >= 0 && rect.bottom <= windowHeight) {
+                const delay = index * 2; 
+                circle.style.animationDelay = `${delay}s`;
+                circle.classList.add('animate-circle');
+            } else {
+                circle.classList.remove('animate-circle');
+                circle.style.animationDelay = '0s'; 
+            }
+        });
+
+        ellipses.forEach((ellipse, index) => {
+            const rect = ellipse.getBoundingClientRect();
+            if (rect.top >= 0 && rect.bottom <= windowHeight) {
+                const delay = index * 0.4; 
+                ellipse.style.animationDelay = `${delay}s`; 
+                ellipse.classList.add('animate-img');
+            } else {
+                ellipse.classList.remove('animate-img');
+                ellipse.style.animationDelay = '0s';
+            }
+        });
+    };
+
+    window.addEventListener('scroll', checkPosition);
+    window.addEventListener('resize', checkPosition);
+
+    checkPosition();
+});
