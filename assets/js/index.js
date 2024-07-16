@@ -121,14 +121,25 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   
     document.querySelector('.reviews-block__text').addEventListener('touchstart', (e) => {
-        e.preventDefault(); 
         startX = e.touches[0].clientX;
-    });
+    }, { passive: false }); // Установка опции passive в false позволяет предотвратить нежелательную прокрутку
     
     document.querySelector('.reviews-block__text').addEventListener('touchmove', (e) => {
         e.preventDefault(); 
-        endX = e.touches[0].clientX;
-    });
+        endX = e.changedTouches[0].clientX;
+    
+        const deltaX = startX - endX;
+    
+        if (Math.abs(deltaX) > 50) {
+            if (deltaX > 0) {
+                nextSlide();
+            } else {
+                prevSlide();
+            }
+        }
+    
+        startX = endX;
+    }, { passive: false });
   
     document.querySelector('.reviews-block__text').addEventListener('touchend', () => {
         if (startX > endX + 50) {
