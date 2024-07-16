@@ -77,3 +77,64 @@ document.addEventListener('scroll', function() {
 function updateRangeValue(value) {
     document.getElementById('rangeValueDisplay').textContent = value + '%';
 }
+
+
+// Отзывыв
+document.addEventListener("DOMContentLoaded", () => {
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.review-slide');
+    const indicators = document.querySelectorAll('.indicator');
+  
+    let startX = 0;
+    let endX = 0;
+  
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.remove('active');
+            if (i === index) {
+                slide.classList.add('active');
+            }
+        });
+        indicators.forEach((indicator, i) => {
+            indicator.classList.remove('active');
+            if (i === index) {
+                indicator.classList.add('active');
+            }
+        });
+    }
+  
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    }
+  
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        showSlide(currentSlide);
+    }
+  
+    indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+            currentSlide = index;
+            showSlide(currentSlide);
+        });
+    });
+  
+    document.querySelector('.reviews-block__text').addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+    });
+  
+    document.querySelector('.reviews-block__text').addEventListener('touchmove', (e) => {
+        endX = e.touches[0].clientX;
+    });
+  
+    document.querySelector('.reviews-block__text').addEventListener('touchend', () => {
+        if (startX > endX + 50) {
+            nextSlide();
+        } else if (startX < endX - 50) {
+            prevSlide();
+        }
+    });
+  
+    showSlide(currentSlide);
+  });
