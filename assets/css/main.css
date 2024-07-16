@@ -238,6 +238,7 @@ body, html {
     width: 100%;
     padding-top: 5%;
     margin-bottom: 0;
+    padding-bottom: 5%;
 }
 
 .page__orders > h1 {
@@ -333,6 +334,8 @@ body, html {
     }
 }
 
+/* Толкаем анимацию */
+
 .animate-circle {
     animation: floatUp 1s forwards;
 }
@@ -358,5 +361,113 @@ body, html {
     }
     100% {
         transform: translateY(-20px);
+    }
+}
+
+/* Groups */
+.groups {
+    display: flex;
+    flex-direction: row;
+    width: 72%;
+    margin: 5% auto;
+    gap: 2%;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.groups__dropdown {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 30%;
+    align-items: center;
+    height: 6vh;
+    color: #272733;
+    background-color: #FFFFFF;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.groups__input  {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 30%;
+    align-items: center;
+    height: 6vh;
+    color: #272733;
+    border-radius: 3px;
+    border: none;
+    background-color: #FFFFFF;
+    outline: none;
+}
+
+.groups__input::placeholder {
+    color: #272733; 
+    opacity: 1; 
+}
+
+.groups__container {
+    display: flex;
+    flex-direction: column;
+    width: 62.5%;
+}
+
+.groups__container-text {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.groups__container-text > p {
+    color: white;
+    margin-bottom: 5px;
+}
+
+.groups__container > input {
+    width: 100%;
+}
+
+.groups__button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 30%;
+    align-items: center;
+    height: 6vh;
+    color: #272733;
+    background-color: #FFFFFF;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    text-transform: uppercase;
+    gap: 2%;
+}
+
+.endButton {
+    width: 25%;
+    margin: 2% auto;
+    display: flex;
+    justify-content: center;
+    height: 6vh;
+    background-color: #3E9CDC;
+    align-items: center;
+    color: white;
+    text-transform: uppercase;
+    border: 1px white solid;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+@media(max-width:768px) {
+    .groups {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .groups__dropdown, .groups__input, .groups__container, .groups__button {
+        width: 100%;
     }
 }

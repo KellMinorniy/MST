@@ -72,3 +72,8 @@ document.addEventListener('scroll', function() {
 
     checkPosition();
 });
+
+// Получаем значение Value
+function updateRangeValue(value) {
+    document.getElementById('rangeValueDisplay').textContent = value + '%';
+}
