@@ -121,10 +121,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   
     document.querySelector('.reviews-block__text').addEventListener('touchstart', (e) => {
+        e.preventDefault(); 
         startX = e.touches[0].clientX;
     });
-  
+    
     document.querySelector('.reviews-block__text').addEventListener('touchmove', (e) => {
+        e.preventDefault(); 
         endX = e.touches[0].clientX;
     });
   
