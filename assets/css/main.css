@@ -507,6 +507,11 @@ body, html {
     color: white;
 }
 
+.footer__container-icons > a {
+    text-decoration: none;
+    color: white;
+}
+
 .footer__container-middle {
     display: flex;
     flex-direction: row;
